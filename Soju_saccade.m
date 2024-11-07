@@ -7,4 +7,8 @@ tld = 'Z:\UserFolders\ToriArriola\Soju_training';
 data = struct();
 
 sac_fld = dir(fullfile(tld, "Saccade"));
-sac_files = fullfile(sac_fld, '*rsp');
+
+for i = length(sac_fld)
+    sac_files = fullfile(sac_fld, '*rsp');
+
+end %sac_fld
