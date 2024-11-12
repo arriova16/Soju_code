@@ -4,6 +4,7 @@ tld = 'Z:\UserFolders\ToriArriola\Soju_training\Saccade';
 file_dir = dir(tld);
 file_list = dir(fullfile(tld, '*.rsp'));
 data = struct();
+SetFont('Arial', 12)
 
 %% Loading rsp - temp
 
@@ -25,7 +26,6 @@ for i = 1:length(file_list)
 
     response_table = cell2table(temp_data, 'VariableNames', {'Trial', 'CorrectInterval', 'CorrectAnswer', 'Response'});
     data(ii).ResponseTable = response_table;
-    data(ii).NumTrials = size(response_table, 1);
     ii = ii + 1;
 
 end %sac_fld
@@ -41,10 +41,24 @@ for n = 1:length(data)
     for t = 1:tot_trial
         idx = find(data(n).ResponseTable.Trial == t, 1, 'first');
         if (strcmp(data(n).ResponseTable.Response{idx}, 'correct'))
-            correct
+            correct_first(t) = true;
+        end
 
+     data(n).PercentCorrect = floor((sum(correct_first)/ tot_trial) *100);
 
-
-    end
+    end %tot_trial
 
 end %data
+
+%% Plotting percent correct by day
+
+figure; hold on
+
+
+for i = 1:length(data)
+    num_sess = 
+    plot(data(i).PercentCorrect, data(:).Date, "LineWidth", 3)
+
+
+end
+
