@@ -56,9 +56,10 @@ figure; hold on
 
 
 for i = 1:length(data)
-    num_sess = size(data,2);
-    plot(linspace(0,10), data(i).PercentCorrect,'Color', rgb(198, 40, 40), "LineWidth", 3)
-
-
+    num_sess =1:[length(data)];
+    plot(num_sess, [data.PercentCorrect], "LineWidth", 3)
+    
 end
 
+xlabel('Session', 'FontSize', 18)
+ylabel('Percent Correct', 'FontSize',18)
