@@ -61,5 +61,8 @@ for i = 1:length(data)
     
 end
 
-xlabel('Session', 'FontSize', 18)
-ylabel('Percent Correct', 'FontSize',18)
+ax = gca;
+ax.FontSize = 18;
+
+xlabel('Session', 'FontSize', 20)
+ylabel('Percent Correct', 'FontSize',20)
