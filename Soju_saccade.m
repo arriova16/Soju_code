@@ -21,7 +21,7 @@ for i = 1:length(file_list)
     if size(temp_data, 2) == 10
         temp_data = temp_data(:, [1:3, 10]);
     end
-    abort_idx = strcmpi(temp_data(:,4), 'empty response') | strcmpi(temp_data(:,4), 'no');
+    abort_idx = strcmpi(temp_data(:,4), 'empty response') | strcmpi(temp_data(:,4), 'response abort incorrect');
     temp_data = temp_data(~abort_idx, :);
 
     response_table = cell2table(temp_data, 'VariableNames', {'Trial', 'CorrectInterval', 'CorrectAnswer', 'Response'});
@@ -58,7 +58,7 @@ figure; hold on
 for i = 1:length(data)
     num_sess =1:[length(data)];
     plot(num_sess, [data.PercentCorrect], "LineWidth", 3)
-    
+    scatter(num_sess, [data.PercentCorrect])
 end
 
 ax = gca;
@@ -66,3 +66,9 @@ ax.FontSize = 18;
 
 xlabel('Session', 'FontSize', 20)
 ylabel('Percent Correct', 'FontSize',20)
+%% sliding window of trials
+
+
+
+
+%% which side the monkey looked first
