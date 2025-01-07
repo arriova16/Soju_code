@@ -71,7 +71,8 @@ ylabel('Percent Correct', 'FontSize',20)
 win_size = 50;
 
 for i = 1:length(data)
-   
+    size
+ 
 
 
 
