@@ -20,8 +20,10 @@ for i = 1:length(file_list)
     temp_data = readcell(fullfile(tld, file_list(i).name), 'FileType', 'text', 'NumHeaderLines',1);
     if size(temp_data, 2) == 10
         temp_data = temp_data(:, [1:3, 10]);
+    elseif size(temp_data,2) == 12
+        temp_data = temp_data(:, [1:3, 10]);
     end
-    abort_idx = strcmpi(temp_data(:,4), 'empty response') | strcmpi(temp_data(:,4), 'response abort incorrect');
+    abort_idx = strcmpi(temp_data(:,4), 'no response') | strcmpi(temp_data(:,4), 'empty response');
     temp_data = temp_data(~abort_idx, :);
 
     response_table = cell2table(temp_data, 'VariableNames', {'Trial', 'CorrectInterval', 'CorrectAnswer', 'Response'});
@@ -45,7 +47,7 @@ for n = 1:length(data)
         end
 
      data(n).PercentCorrect = floor((sum(correct_first)/ tot_trial) *100);
-
+    
     end %tot_trial
 
 end %data
@@ -68,15 +70,19 @@ xlabel('Session', 'FontSize', 20)
 ylabel('Percent Correct', 'FontSize',20)
 %% sliding window of trials
 
-win_size = 50;
-
-for i = 1:length(data)
-   
-
-
-
-
-end
+% win_size = 50;
+% 
+% for i = 1:length(data)
+%     RTS = size(data(i).ResponseTable,1);
+%     for w = 1:(size(RTS,1) - win_size +1)
+%         current_win = w:w+win_size-1;
+%         next = i+10:i+win_size-1;
+% 
+% 
+%     end
+% 
+% 
+% end
 
 %      wind_size = 100;
 % for i = 1:(size(bigtable,1) - wind_size + 1) % might be off by 1 trial
