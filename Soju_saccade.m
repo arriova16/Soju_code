@@ -59,12 +59,12 @@ figure; hold on
 
 for i = 1:length(data)
     num_sess =1:[length(data)];
-    plot(num_sess, [data.PercentCorrect], "LineWidth", 3)
-    scatter(num_sess, [data.PercentCorrect])
+    plot(num_sess, [data.PercentCorrect], "LineWidth", 4)
+    scatter(num_sess, [data.PercentCorrect], 50,'filled')
 end
 
 ax = gca;
-ax.FontSize = 18;
+ax.FontSize = 20;
 
 xlabel('Session', 'FontSize', 20)
 ylabel('Percent Correct', 'FontSize',20)
