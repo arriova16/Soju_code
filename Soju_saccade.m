@@ -70,37 +70,3 @@ ax.FontSize = 20;
 
 xlabel('Session', 'FontSize', 20)
 ylabel('Percent Correct', 'FontSize',20)
-%% sliding window of trials
-
-% win_size = 50;
-% 
-% for i = 1:length(data)
-%     RTS = size(data(i).ResponseTable,1);
-%     for w = 1:(size(RTS,1) - win_size +1)
-%         current_win = w:w+win_size-1;
-%         next = i+10:i+win_size-1;
-% 
-% 
-%     end
-% 
-% 
-% end
-
-%      wind_size = 100;
-% for i = 1:(size(bigtable,1) - wind_size + 1) % might be off by 1 trial
-%      current_window = i:i+wind_size-1;
-% 
-%     next = i+10:i+wind_size-1;
-%      [detection_table_next{i}, coeff_table_next{i}] = AnalyzeDetectionTable(bigtable(next, :));
-%      [detection_table_current{i}, coeff_table_current{i}] = AnalyzeDetectionTable(bigtable(current_window, :));
-% end
-
-
-
-
-%% which side the monkey looked first
-
-
-
-
-
